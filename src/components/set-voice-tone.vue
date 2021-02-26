@@ -7,7 +7,7 @@
           Tone</span
         >
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn active">
+          <label class="btn">
             <input type="radio" name="setVoiceTone" id="High" />High
           </label>
           <label class="btn">
