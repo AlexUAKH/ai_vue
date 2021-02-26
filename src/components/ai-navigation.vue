@@ -4,7 +4,7 @@
     class="d-flex align-items-center justify-content-between fixed-top navigation"
   >
     <a class="navbar-brand my-0 mr-xs-auto" href="#"
-      ><img src="images/logo-white.png" alt="AI通訳"
+      ><img src="@/assets/images/logo-white.png" alt="AI通訳"
     /></a>
     <button
       class="navbar-toggler collapsed"
@@ -49,14 +49,15 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              ><img src="images/avatar.jpg" class="name"
+              @click.prevent="accountMenu = !accountMenu"
+              ><img src="@/assets/images/avatar.jpg" class="name"
             /></a>
             <div
               class="dropdown-menu account_dropdown"
               aria-labelledby="account_dropdown"
             >
               <div class="profile">
-                <img src="images/avatar.jpg" alt="米倉豪志" />
+                <img src="@/assets/images/avatar.jpg" alt="米倉豪志" />
                 <p class="name">
                   米倉豪志<span class="email en">goushi@alt.ai</span>
                 </p>
@@ -65,7 +66,7 @@
                 <li>
                   <a class="dropdown-item settings" href="#">
                     <span class="ic"
-                      ><img src="images/ic_settings.svg" alt="Settings"
+                      ><img src="@/assets/images/ic_settings.svg" alt="Settings"
                     /></span>
                     <span class="en">Settings</span></a
                   >
@@ -74,7 +75,7 @@
                   <a class="dropdown-item sendInvitation" href="#">
                     <span class="ic"
                       ><img
-                        src="images/ic_sendInvitation.svg"
+                        src="@/assets/images/ic_sendInvitation.svg"
                         alt="Send Invitation"
                     /></span>
                     <span class="en">Send Invitation</span></a
@@ -83,7 +84,7 @@
                 <li>
                   <a class="dropdown-item help" href="#">
                     <span class="ic"
-                      ><img src="images/ic_help.svg" alt="Help"
+                      ><img src="@/assets/images/ic_help.svg" alt="Help"
                     /></span>
                     <span class="en">Help</span></a
                   >
@@ -91,7 +92,7 @@
                 <li>
                   <a class="dropdown-item logout" href="#">
                     <span class="ic"
-                      ><img src="images/ic_logout.svg" alt="Logout"
+                      ><img src="@/assets/images/ic_logout.svg" alt="Logout"
                     /></span>
                     <span class="en">Logout</span></a
                   >
@@ -105,3 +106,11 @@
   </div>
   <!-- /END Navigation -->
 </template>
+
+<script>
+export default {
+  data: () => ({
+    accountMenu: false
+  })
+};
+</script>

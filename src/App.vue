@@ -2,54 +2,12 @@
   <div class="beforeTranslate">
     <ai-navigation></ai-navigation>
 
-    <section id="avaialbeTime" class="avaialbeTime">
-      <span class="title">通訳可能時間</span>
-      <span class="remainingTime en">00:13:59</span>
-      <div class="translateBtnBox">
-        <button class="translateBtn disabledTranslate"></button>
-        <span class="selectExportMsg hide">出力先を選択してください</span>
-      </div>
-      <button class="soundBtn"></button>
-    </section>
-    <!-- /END #avaialbeTime -->
+    <available-time></available-time>
 
     <!-- Topscreen -->
     <main id="topscreen" class="topscreen">
       <div id="contents">
-        <section id="textList" class="textList">
-          <ul>
-            <li>こ</li>
-            <li>こん</li>
-            <li>こんに</li>
-            <li>こんにち</li>
-            <li>こんにち(final)</li>
-            <li>Hello</li>
-            <li>わ</li>
-            <li>わた</li>
-            <li>わたし</li>
-            <li>わたしは</li>
-            <li>私はよ</li>
-            <li>私はよね</li>
-            <li>私はよねく</li>
-            <li>私は米倉</li>
-            <li>私は米倉ご</li>
-            <li>私は米倉ごう</li>
-            <li>私は米倉倉豪志</li>
-            <li>私は米倉豪志で</li>
-            <li>私は米倉豪志です。(final)</li>
-            <li>I’m Goushi Yonekura</li>
-            <li>わ</li>
-            <li>わた</li>
-            <li>わたし</li>
-            <li>わたしは</li>
-            <li>私はよ</li>
-            <li>私はよね</li>
-            <li>私はよねく</li>
-            <li>私は米倉</li>
-            <li>私は米倉ご</li>
-            <li>私は米倉ごう</li>
-          </ul>
-        </section>
+        <text-list></text-list>
         <!-- /END #textList -->
 
         <section id="selectLangList" class="selectLangList">
@@ -267,7 +225,10 @@
         poster="images/video.jpg"
         loop
       >
-        <source src="images/ai-tsuyaku-waiting-back.mp4" type="video/mp4" />
+        <source
+          src="@/assets/images/ai-tsuyaku-waiting-back.mp4"
+          type="video/mp4"
+        />
       </video>
       <div class="topscreen_overlay"></div>
     </main>
@@ -623,9 +584,14 @@
 
 <script>
 import AiNavigation from "./components/ai-navigation.vue";
+import AvailableTime from "./components/available-time.vue";
+import TextList from "./components/text-list.vue";
 export default {
   components: {
-    AiNavigation
+    AiNavigation,
+    AvailableTime,
+    TextList
   }
 };
 </script>
+, AvailableTime
