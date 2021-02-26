@@ -2,7 +2,7 @@
   <section
     id="settingPanel"
     class="settingPanel"
-    :class="{ panelClose: isSettingsHided || windowWidth <= window.innerWidth }"
+    :class="{ panelClose: isSettingsHided || windowWidth <= 767 }"
   >
     <button
       class="settingPanelBtn"
