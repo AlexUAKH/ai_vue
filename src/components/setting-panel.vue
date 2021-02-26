@@ -8,6 +8,7 @@
       class="settingPanelBtn"
       @click="isSettingsHided = !isSettingsHided"
     ></button>
+
     <div class="setExportServices">
       <ul>
         <li id="exportToZoom">
@@ -48,19 +49,13 @@
         </li>
       </ul>
     </div>
+
     <hr />
-    <div class="setSoundMode">
-      <ul>
-        <li>
-          <p><span class="ic ic_lipSync"></span>音声限定モード</p>
-          <div class="custom-switch custom-switch-label-io">
-            <input class="custom-switch-input" id="soundMode" type="checkbox" />
-            <label class="custom-switch-btn" for="soundMode"></label>
-          </div>
-        </li>
-      </ul>
-    </div>
+
+    <set-sound-mode></set-sound-mode>
+
     <hr />
+
     <div class="setLang">
       <ul>
         <li>
@@ -105,7 +100,9 @@
         </li>
       </ul>
     </div>
+
     <hr />
+
     <div class="setVoiceTone">
       <ul>
         <li>
@@ -128,7 +125,9 @@
 </template>
 
 <script>
+import setSoundMode from "./set-sound-mode.vue";
 export default {
+  components: { setSoundMode },
   data: () => ({
     isSettingsHided: false,
     windowWidth: window.innerWidth
