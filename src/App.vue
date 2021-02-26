@@ -10,73 +10,7 @@
         <text-list></text-list>
         <!-- /END #textList -->
 
-        <section id="selectLangList" class="selectLangList">
-          <div class="selectLangListBox">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn active">
-                <span class="delete"></span>
-                <input
-                  type="radio"
-                  name="selectLangList"
-                  id="English"
-                  checked
-                />English
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input type="radio" name="selectLangList" id="Spanish" />Spanish
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input type="radio" name="selectLangList" id="Korean" />Korean
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input
-                  type="radio"
-                  name="selectLangList"
-                  id="Mandarin"
-                />Mandarin
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input
-                  type="radio"
-                  name="selectLangList"
-                  id="Cantonese"
-                />Cantonese
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input
-                  type="radio"
-                  name="selectLangList"
-                  id="Taiwanese"
-                />Taiwanese
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input
-                  type="radio"
-                  name="selectLangList"
-                  id="Vietnamese"
-                />Vietnamese
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input type="radio" name="selectLangList" id="French" />French
-              </label>
-              <label class="btn">
-                <span class="delete"></span>
-                <input
-                  type="radio"
-                  name="selectLangList"
-                  id="Italiano"
-                />Italiano
-              </label>
-            </div>
-          </div>
-        </section>
+        <select-lang-list></select-lang-list>
         <!-- /END #selectLangList -->
 
         <section id="settingPanel" class="settingPanel">
@@ -585,12 +519,14 @@
 <script>
 import AiNavigation from "./components/ai-navigation.vue";
 import AvailableTime from "./components/available-time.vue";
+import SelectLangList from "./components/select-lang-list.vue";
 import TextList from "./components/text-list.vue";
 export default {
   components: {
     AiNavigation,
     AvailableTime,
-    TextList
+    TextList,
+    SelectLangList
   }
 };
 </script>
