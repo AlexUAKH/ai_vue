@@ -1,6 +1,13 @@
 <template>
-  <section id="settingPanel" class="settingPanel">
-    <button class="settingPanelBtn"></button>
+  <section
+    id="settingPanel"
+    class="settingPanel"
+    :class="{ panelClose: isSettingsHided || windowWidth <= window.innerWidth }"
+  >
+    <button
+      class="settingPanelBtn"
+      @click="isSettingsHided = !isSettingsHided"
+    ></button>
     <div class="setExportServices">
       <ul>
         <li id="exportToZoom">
@@ -121,5 +128,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    isSettingsHided: false,
+    windowWidth: window.innerWidth
+  }),
+  created() {
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
+  }
+};
 </script>
