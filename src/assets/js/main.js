@@ -1,8 +1,8 @@
-$(".selectLangList label.btn .delete").on("click", function() {
-  $(this)
-    .parent("label")
-    .remove();
-});
+// $(".selectLangList label.btn .delete").on("click", function() {
+//   $(this)
+//     .parent("label")
+//     .remove();
+// });
 
 /**
  * settingPanel
