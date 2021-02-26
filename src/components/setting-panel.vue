@@ -56,50 +56,7 @@
 
     <hr />
 
-    <div class="setLang">
-      <ul>
-        <li>
-          <span class="title"
-            ><img src="images/ic_comment.svg" alt="発話言語" />発話言語</span
-          >
-          <div class="selectdiv">
-            <select>
-              <option>English</option>
-              <option>Spanish</option>
-              <option>Korean</option>
-              <option>Mandarin</option>
-              <option>Cantonese</option>
-              <option>Taiwanese</option>
-              <option>Vietnamese</option>
-              <option>French</option>
-              <option>Italiano</option>
-            </select>
-          </div>
-        </li>
-        <li>
-          <span class="title"
-            ><img
-              src="images/ic_translate.svg"
-              alt="通訳言語の追加"
-            />通訳言語の追加</span
-          >
-          <div class="selectdiv">
-            <select>
-              <option selected>訳文の言語</option>
-              <option>English</option>
-              <option>Spanish</option>
-              <option>Korean</option>
-              <option>Mandarin</option>
-              <option>Cantonese</option>
-              <option>Taiwanese</option>
-              <option>Vietnamese</option>
-              <option>French</option>
-              <option>Italiano</option>
-            </select>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <set-lang-panel></set-lang-panel>
 
     <hr />
 
@@ -125,9 +82,10 @@
 </template>
 
 <script>
+import SetLangPanel from "./set-lang-panel.vue";
 import setSoundMode from "./set-sound-mode.vue";
 export default {
-  components: { setSoundMode },
+  components: { setSoundMode, SetLangPanel },
   data: () => ({
     isSettingsHided: false,
     windowWidth: window.innerWidth
