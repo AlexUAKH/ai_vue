@@ -1,16 +1,14 @@
 <template>
-  <div class="modal fade exportServicesModal" :id="modalId" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <slot name="header"></slot>
-        </div>
-        <div class="modal-body">
-          <slot></slot>
-        </div>
-        <div class="modal-footer">
-          <slot name="footer"></slot>
-        </div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <slot name="header"></slot>
+      </div>
+      <div class="modal-body">
+        <slot></slot>
+      </div>
+      <div class="modal-footer">
+        <slot name="footer"></slot>
       </div>
     </div>
   </div>
@@ -24,5 +22,5 @@ export default {
       required: true
     }
   }
-}
+};
 </script>

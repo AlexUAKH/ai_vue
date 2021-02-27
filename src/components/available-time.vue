@@ -14,18 +14,18 @@
         >出力先を選択してください</span
       >
     </div>
-    <sound-switcher></sound-switcher>
+    <sound-mute-switcher></sound-mute-switcher>
   </section>
 </template>
 
 <script>
-import SoundSwitcher from "./sound-switcher.vue";
+import SoundMuteSwitcher from "./sound-mute-switcher.vue";
 export default {
   data: () => ({
     isExportMsg: true
   }),
   components: {
-    SoundSwitcher
+    SoundMuteSwitcher
   }
 };
 </script>

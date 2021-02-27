@@ -10,14 +10,14 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </template>
-    
+
     <video
       autoplay="autoplay"
       autobuffer="autobuffer"
       muted="muted"
-      poster="images/video.jpg"
+      poster="require('@/assets/images/video.jpg')"
     >
-      <source src="images/sample.mp4" type="video/mp4" />
+      <source src="@/assets/images/sample.mp4" type="video/mp4" />
     </video>
     <p>
       デフォルト動画はこれでよろしいですか？<br />
@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import TheModal from "./the-modal.vue"
+import TheModal from "./the-modal.vue";
 
 export default {
   components: {
     TheModal
   }
-}
+};
 </script>

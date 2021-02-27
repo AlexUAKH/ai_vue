@@ -13,7 +13,7 @@
         <select-lang-list></select-lang-list>
         <!-- /END #selectLangList -->
 
-        <setting-panel></setting-panel>
+        <setting-panel v-model="modal"></setting-panel>
         <!-- /END #settingPanel -->
       </div>
       <!-- /END #contents -->
@@ -23,7 +23,7 @@
         autoplay="autoplay"
         autobuffer="autobuffer"
         muted="muted"
-        poster="images/video.jpg"
+        poster="require('@/assets/images/video.jpg')"
         loop
       >
         <source
@@ -35,13 +35,13 @@
     </main>
     <!-- /END #topscreen -->
 
-    <zoom-modal />
-    <teams-modal />
-    <hangouts-modal />
+    <zoom-modal v-if="modal === 'zoom'" @resetModal="modal = ''" />
+    <teams-modal v-if="modal === 'teams'" @resetModal="modal = ''" />
+    <hangouts-modal v-if="modal === 'hangouts'" @resetModal="modal = ''" />
 
     <!-- recordingModal -->
-    <recording-modal />
-    <recording-confirm-modal />
+    <recording-modal v-if="false" />
+    <recording-confirm-modal v-if="false" />
     <!-- /END #recordingModal -->
   </div>
 </template>
@@ -52,11 +52,11 @@ import AvailableTime from "./components/available-time.vue";
 import SelectLangList from "./components/select-lang-list.vue";
 import SettingPanel from "./components/setting-panel.vue";
 import TextList from "./components/text-list.vue";
-import ZoomModal from "./components/modals/zoom-modal.vue"
-import TeamsModal from "./components/modals/teams-modal.vue"
-import HangoutsModal from './components/modals/hangouts-modal.vue';
-import RecordingModal from './components/modals/recording-modal.vue';
-import RecordingConfirmModal from './components/modals/recording-confirm-modal.vue';
+import ZoomModal from "./components/modals/zoom-modal.vue";
+import TeamsModal from "./components/modals/teams-modal.vue";
+import HangoutsModal from "./components/modals/hangouts-modal.vue";
+import RecordingModal from "./components/modals/recording-modal.vue";
+import RecordingConfirmModal from "./components/modals/recording-confirm-modal.vue";
 
 export default {
   components: {
@@ -70,6 +70,14 @@ export default {
     HangoutsModal,
     RecordingModal,
     RecordingConfirmModal
+  },
+  data: () => ({
+    modal: ""
+  }),
+  watch: {
+    modal() {
+      console.log("modal", this.modal);
+    }
   }
 };
 </script>

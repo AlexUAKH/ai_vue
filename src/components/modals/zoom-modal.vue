@@ -1,59 +1,86 @@
 <template>
-  <the-modal :modal-id="'exportZoomModal'">
-    <template #header>
-      <img src="images/ic_zoom-on.svg" alt="zoom">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </template>
-  
-    <video
-      autoplay="autoplay"
-      autobuffer="autobuffer"
-      poster="images/video.jpg"
-    >
-      <source src="images/sample.mp4" type="video/mp4" />
-    </video>
-    <p>
-      デフォルトの動画を撮影します。<br />
-      ここで撮影された動画は、高速モードで使用されます。<br />
-      録画開始ボタンを押して、カメラの前で以下の文章を読み上げてください。
-    </p>
-    <div class="recordingBtns">
-      <button
-        type="button"
-        class="btn btn-primary stopRecordingBtn"
-        data-dismiss="modal"
-        data-toggle="modal"
-        data-target="#recordingConfirm"
-      >
-        <span class="start">録画を開始</span
-        ><span class="stop">録画を停止</span>
-      </button>
-    </div>
-    <div class="textArea">
-      <p>
-        オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
-      </p>
-      <p>
-        オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
-      </p>
-      <p>
-        オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
-      </p>
-      <p>
-        オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
-      </p>
-    </div>
-  </the-modal>
+  <div
+    class="modal fade exportServicesModal show"
+    style="display: block"
+    tabindex="-1"
+  >
+    <the-modal :modal-id="'exportZoomModal'">
+      <template #header>
+        <img src="@/assets/images/ic_zoom-on.svg" alt="zoom" />
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          @click="$emit('resetModal')"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </template>
+
+      <div class="modal-body">
+        <p>
+          Zoomに入室し、通訳を開始します。<br />Zoom会議のRoom
+          IDとパスワードを入力してください。
+        </p>
+        <form>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-4 col-form-label"
+              >Room ID</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="text"
+                readonly
+                class="form-control-plaintext"
+                id="roomID"
+                value="xxxxx"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-4 col-form-label"
+              >Password</label
+            >
+            <div class="col-sm-8">
+              <input type="password" class="form-control" id="inputPassword" />
+            </div>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="agree"
+              id="agree"
+            />
+            <label class="form-check-label" for="agree">
+              AI通訳の<a href="#">利用規約</a>に同意する。
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <template #footer>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          data-toggle="modal"
+          data-target="#recording"
+        >
+          Zoomに入室して通訳を開始
+        </button>
+      </template>
+    </the-modal>
+  </div>
 </template>
 
 <script>
-import TheModal from "./the-modal.vue"
+import TheModal from "./the-modal.vue";
 
 export default {
   components: {
     TheModal
   }
-}
+};
 </script>
