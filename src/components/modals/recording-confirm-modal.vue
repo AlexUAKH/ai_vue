@@ -1,10 +1,11 @@
 <template>
   <div
-    class="modal fade recordingModal show"
+    class="modal fade recordingModal show modal-overlay"
     style="display: block"
     tabindex="-1"
+    @click.self="$emit('resetModal', '')"
   >
-    <the-modal :modal-id="'recordingConfirm'">
+    <the-modal :modal-id="'recordingConfirm'" v-on="$listeners">
       <template #header>
         <button
           type="button"

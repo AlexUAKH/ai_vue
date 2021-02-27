@@ -7,7 +7,7 @@
         :id="id"
         type="radio"
         name="setExportServices"
-        @click="$emit('input', id)"
+        @click.stop="$emit('input', id)"
         :checked="value === id"
       />
       <label class="custom-switch-btn" :for="id"></label>

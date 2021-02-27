@@ -1,8 +1,9 @@
 <template>
   <div
-    class="modal fade exportServicesModal show"
+    class="modal fade exportServicesModal show modal-overlay"
     style="display: block"
     tabindex="-1"
+    @click.self="$emit('resetModal', '')"
   >
     <the-modal :modal-id="'exportZoomModal'">
       <template #header>
@@ -96,3 +97,4 @@ export default {
   })
 };
 </script>
+
