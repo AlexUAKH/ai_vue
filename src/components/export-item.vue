@@ -1,6 +1,6 @@
 <template>
   <li id="exportToZoom" :class="{ active: value === id }">
-    <p><span class="ic ic_zoom"></span> {{ title }}</p>
+    <p><span class="ic" :class="icon"></span> {{ title }}</p>
     <div class="custom-switch custom-switch-label-io">
       <input
         class="custom-switch-input"
@@ -27,6 +27,10 @@ export default {
       require: true
     },
     id: {
+      type: String,
+      require: true
+    },
+    icon: {
       type: String,
       require: true
     }

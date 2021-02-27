@@ -5,16 +5,19 @@
         v-model="exportTo"
         title="zoom に出力"
         id="export_zoom"
+        icon="ic_zoom"
       ></export-item>
       <export-item
         v-model="exportTo"
         title="Teams に出力"
         id="export_teams"
+        icon="ic_teams"
       ></export-item>
       <export-item
         v-model="exportTo"
         title="Hangouts に出力"
         id="export_hangouts"
+        icon="ic_hangouts"
       ></export-item>
     </ul>
   </div>
