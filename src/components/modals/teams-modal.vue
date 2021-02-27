@@ -12,7 +12,7 @@
           class="close"
           data-dismiss="modal"
           aria-label="Close"
-          @click="$emit('resetModal')"
+          @click="$emit('resetModal', '')"
         >
           <span aria-hidden="true">&times;</span>
         </button>
@@ -33,7 +33,7 @@
               readonly
               class="form-control-plaintext"
               id="teamsID"
-              value="xxxxx"
+              :value="teamsId"
             />
           </div>
         </div>
@@ -42,7 +42,12 @@
             >Password</label
           >
           <div class="col-sm-8">
-            <input type="password" class="form-control" id="inputPassword" />
+            <input
+              v-model="password"
+              type="password"
+              class="form-control"
+              id="inputPassword"
+            />
           </div>
         </div>
         <div class="form-check">
@@ -51,6 +56,7 @@
             type="checkbox"
             name="agree"
             id="agree"
+            v-model="isChecked"
           />
           <label class="form-check-label" for="agree">
             AI通訳の<a href="#">利用規約</a>に同意する。
@@ -65,6 +71,7 @@
           data-dismiss="modal"
           data-toggle="modal"
           data-target="#recording"
+          @click="$emit('resetModal', 'recording')"
         >
           Teamsに入室して通訳を開始
         </button>
@@ -79,6 +86,11 @@ import TheModal from "./the-modal.vue";
 export default {
   components: {
     TheModal
-  }
+  },
+  data: () => ({
+    teamsId: "****",
+    password: "",
+    isChecked: false
+  })
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="beforeTranslate">
     <ai-navigation></ai-navigation>
 
-    <available-time></available-time>
+    <available-time :activateTranslate="!!modal"></available-time>
 
     <!-- Topscreen -->
     <main id="topscreen" class="topscreen">
@@ -35,13 +35,19 @@
     </main>
     <!-- /END #topscreen -->
 
-    <zoom-modal v-if="modal === 'zoom'" @resetModal="modal = ''" />
-    <teams-modal v-if="modal === 'teams'" @resetModal="modal = ''" />
-    <hangouts-modal v-if="modal === 'hangouts'" @resetModal="modal = ''" />
+    <zoom-modal v-if="modal === 'zoom'" @resetModal="modal = $event" />
+    <teams-modal v-if="modal === 'teams'" @resetModal="modal = $event" />
+    <hangouts-modal v-if="modal === 'hangouts'" @resetModal="modal = $event" />
 
     <!-- recordingModal -->
-    <recording-modal v-if="false" />
-    <recording-confirm-modal v-if="false" />
+    <recording-modal
+      v-if="modal === 'recording'"
+      @resetModal="modal = $event"
+    />
+    <recording-confirm-modal
+      v-if="modal === 'recConfirm'"
+      @resetModal="modal = $event"
+    />
     <!-- /END #recordingModal -->
   </div>
 </template>

@@ -4,7 +4,11 @@
     <span class="remainingTime en">00:13:59</span>
     <div class="translateBtnBox">
       <button
-        class="translateBtn disabledTranslate"
+        class="translateBtn"
+        :class="{
+          disabledTranslate: isDisabledTranslate,
+          startTranslate: isStartTranslate
+        }"
         @click.stop="isExportMsg = !isExportMsg"
       ></button>
       <span
@@ -21,11 +25,25 @@
 <script>
 import SoundMuteSwitcher from "./sound-mute-switcher.vue";
 export default {
+  props: {
+    activateTranslate: {
+      type: Boolean,
+      require: true
+    }
+  },
   data: () => ({
-    isExportMsg: true
+    isExportMsg: true,
+    isDisabledTranslate: true,
+    isStartTranslate: false
   }),
   components: {
     SoundMuteSwitcher
+  },
+  watch: {
+    activateTranslate() {
+      this.isDisabledTranslate = !this.activateTranslate;
+      this.isStartTranslate = this.activateTranslate;
+    }
   }
 };
 </script>

@@ -1,5 +1,9 @@
 <template>
-  <div class="modal fade exportServicesModal" tabindex="-1">
+  <div
+    class="modal fade recordingModal show"
+    style="display: block"
+    tabindex="-1"
+  >
     <the-modal :modal-id="'recording'">
       <template #header>
         <button
@@ -7,62 +11,56 @@
           class="close"
           data-dismiss="modal"
           aria-label="Close"
+          @click="$emit('resetModal', '')"
         >
           <span aria-hidden="true">&times;</span>
         </button>
       </template>
 
+      <video
+        autoplay="autoplay"
+        autobuffer="autobuffer"
+        width="100%"
+        poster="require('@/assets/images/video.jpg')"
+      >
+        <source src="@/assets/images/sample.mp4" type="video/mp4" />
+      </video>
       <p>
-        Teamsに入室し、通訳を開始します。<br />Teams会議のRoom
-        IDとパスワードを入力してください。
+        デフォルトの動画を撮影します。<br />
+        ここで撮影された動画は、高速モードで使用されます。<br />
+        録画開始ボタンを押して、カメラの前で以下の文章を読み上げてください。
       </p>
-      <form>
-        <div class="form-group row">
-          <label for="staticEmail" class="col-sm-4 col-form-label"
-            >Teams ID</label
-          >
-          <div class="col-sm-8">
-            <input
-              type="text"
-              readonly
-              class="form-control-plaintext"
-              id="teamsID"
-              value="xxxxx"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputPassword" class="col-sm-4 col-form-label"
-            >Password</label
-          >
-          <div class="col-sm-8">
-            <input type="password" class="form-control" id="inputPassword" />
-          </div>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            name="agree"
-            id="agree"
-          />
-          <label class="form-check-label" for="agree">
-            AI通訳の<a href="#">利用規約</a>に同意する。
-          </label>
-        </div>
-      </form>
-
-      <template #footer>
+      <div class="recordingBtns">
         <button
           type="button"
           class="btn btn-primary"
+          :class="{
+            stopRecordingBtn: isRecording,
+            startRecordingBtn: !isRecording
+          }"
           data-dismiss="modal"
           data-toggle="modal"
-          data-target="#recording"
+          data-target="#recordingConfirm"
+          @click="$emit('resetModal', 'recConfirm')"
         >
-          Teamsに入室して通訳を開始
+          <span class="start">録画を開始</span
+          ><span class="stop">録画を停止</span>
         </button>
-      </template>
+      </div>
+      <div class="textArea">
+        <p>
+          オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
+        </p>
+        <p>
+          オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
+        </p>
+        <p>
+          オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
+        </p>
+        <p>
+          オルツの開発するスマートミーティングのAI通訳を使えば働き方改革に多大なメリットが生まれます。
+        </p>
+      </div>
     </the-modal>
   </div>
 </template>
@@ -73,6 +71,9 @@ import TheModal from "./the-modal.vue";
 export default {
   components: {
     TheModal
-  }
+  },
+  data: () => ({
+    isRecording: true
+  })
 };
 </script>
